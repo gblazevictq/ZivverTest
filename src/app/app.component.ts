@@ -4,6 +4,7 @@ import {
   IJsonPlaceholderBasic,
   IJsonPlaceholderPost,
 } from './common/json-placeholder-post.interface';
+import { PostStoreService } from './common/post-store.service';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +15,13 @@ export class AppComponent implements OnInit {
   posts: IJsonPlaceholderBasic[][] = [];
   showProperty: 'user' | 'post' = 'post';
 
-  constructor(private commSvc: CommService) {}
+  constructor(
+    private commSvc: CommService,
+    private postStore: PostStoreService
+  ) {}
 
   ngOnInit(): void {
-    this.commSvc.getPosts().subscribe({
+    this.postStore.posts.subscribe({
       next: (postsResponse: IJsonPlaceholderPost[]) => {
         for (let i = 0; i < postsResponse.length; i += 10) {
           this.posts = [
@@ -29,8 +33,10 @@ export class AppComponent implements OnInit {
         }
       },
       error: (err) => {
-        console.log('Error retrieving posts', err);
+        console.log('Error parsing posts', err);
       },
     });
+
+    this.commSvc.getPosts();
   }
 }
