@@ -1,0 +1,21 @@
+@use 'src/scss/variables' as vars;
+
+.post-row {
+  margin-bottom: 1rem;
+}
+
+.posts-title {
+  margin-bottom: 1rem;
+}
+
+.posts--green {
+  .posts-title {
+    color: vars.$c-green-dark;
+  }
+}
+
+.posts--red {
+  .posts-title {
+    color: vars.$c-red-dark;
+  }
+}

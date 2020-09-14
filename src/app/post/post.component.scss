@@ -1,0 +1,35 @@
+@use 'src/scss/variables' as vars;
+
+.post-container {
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+
+  // Remove text selection that can popup on click / double-click
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  h2 {
+    text-align: center;
+    margin: 0;
+  }
+
+  &.post-container--green {
+    border: 1px solid vars.$c-green-mid;
+
+    h2 {
+      color: vars.$c-green-dark;
+    }
+  }
+
+  &.post-container--red {
+    border: 1px solid vars.$c-red-mid;
+
+    h2 {
+      color: vars.$c-red-dark;
+    }
+  }
+}

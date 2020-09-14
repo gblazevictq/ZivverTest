@@ -1,0 +1,5 @@
+<div class="post-container"
+     [class]="itemShown === 'post' ? 'post-container--green' : 'post-container--red'">
+  <h2 *ngIf="itemShown === 'post'">{{ post.id }}</h2>
+  <h2 *ngIf="itemShown === 'user'">{{ post.userId }}</h2>
+</div>

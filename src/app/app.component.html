@@ -1,0 +1,15 @@
+<div [class]="showProperty === 'post' ? 'posts--green' : 'posts--red'">
+  <h1 class="posts-title">Displaying: {{ showProperty === 'post' ? 'Post ID' : 'User ID' }}</h1>
+
+  <div class="container-fluid">
+    <div *ngFor="let postRow of posts"
+         class="row post-row">
+      <div *ngFor="let postItem of postRow"
+           class="col">
+        <app-post [post]="postItem"
+                  [itemShown]="showProperty"
+                  (click)="showProperty === 'post' ? showProperty = 'user' : showProperty = 'post'"></app-post>
+      </div>
+    </div>
+  </div>
+</div>
